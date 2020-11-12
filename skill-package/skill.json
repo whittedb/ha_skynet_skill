@@ -1,0 +1,30 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "HAL 9000 Responder",
+          "examplePhrases": [
+            "Alexa open sky net",
+            "master bedroom temperature",
+            "office humidity"
+          ],
+          "name": "SmartHome-TellMe",
+          "description": "Home Automation HAL 9000 device status responder"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:116091395081:function:ask-smarthome-tellme-default-default-1603191895002"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}

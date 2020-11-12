@@ -1,0 +1,251 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "sky net",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "DeviceStatusIntent",
+          "slots": [
+            {
+              "name": "location",
+              "type": "AMAZON.Room",
+              "samples": [
+                "{location}"
+              ]
+            },
+            {
+              "name": "sensor",
+              "type": "LIST_OF_SENSORS",
+              "samples": [
+                "{sensor}"
+              ]
+            }
+          ],
+          "samples": [
+            "to tell me {location} {sensor}",
+            "to give me {location} {sensor}",
+            "for {location} {sensor}",
+            "for {sensor} in {location}",
+            "{location} {sensor}",
+            "{sensor} in {location}",
+            "{sensor} for {location}",
+            "{sensor} of {location}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "AMAZON.Room",
+          "values": [
+            {
+              "id": "AC",
+              "name": {
+                "value": "a.c.",
+                "synonyms": ["thermostat"]
+              }
+            },
+            {
+              "id": "HOMERUNCLOSET",
+              "name": {
+                "value": "home run closet",
+                "synonyms": [
+                  "wiring closet"
+                ]
+              }
+            },
+            {
+              "id": "AVERAGEHOUSE",
+              "name": {
+                "value": "average house"
+              }
+            },
+            {
+              "id": "MASTERBEDROOM",
+              "name": {
+                "value": "master bedroom",
+                "synonyms": [
+                  "master room",
+                  "master bed"
+                ]
+              }
+            },
+            {
+              "id": "GUESTROOM",
+              "name": {
+                "value": "guest room",
+                "synonyms": [
+                  "guest bedroom",
+                  "guest bed"
+                ]
+              }
+            },
+            {
+              "id": "BACKBEDROOM",
+              "name": {
+                "value": "back bedroom",
+                "synonyms": [
+                  "back room",
+                  "back bed",
+                  "office two",
+                  "back office",
+                  "second office"
+                ]
+              }
+            },
+            {
+              "id": "OFFICE",
+              "name": {
+                "value": "office",
+                "synonyms": [
+                  "main office",
+                  "front office",
+                  "office one",
+                  "living room"
+                ]
+              }
+            },
+            {
+              "id": "SHOP",
+              "name": {
+                "value": "shop",
+                "synonyms": [
+                  "garage",
+                  "work room"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "LIST_OF_SENSORS",
+          "values": [
+            {
+              "id": "TEMPERATURE",
+              "name": {
+                "value": "temperature",
+                "synonyms": ["temp"]
+              }
+            },
+            {
+              "id": "HUMIDITY",
+              "name": {
+                "value": "humidity",
+                "synonyms": ["moisture"]
+              }
+            },
+            {
+              "id": "MODE",
+              "name": {
+                "value": "mode",
+                "synonyms": []
+              }
+            },
+            {
+              "id": "STATE",
+              "name": {
+                "value": "state",
+                "synonyms": [
+                  "status"
+                ]
+              }
+            },
+            {
+              "id": "SETPOINTS",
+              "name": {
+                "value": "set points",
+                "synonyms": [
+                  "setpoints"
+                ]
+              }
+            },
+            {
+              "id": "COOLSETPOINT",
+              "name": {
+                "value": "cool set point",
+                "synonyms": [
+                  "cool setpoint"
+                ]
+              }
+            },
+            {
+              "id": "HEATSETPOINT",
+              "name": {
+                "value": "heat set point",
+                "synonyms": [
+                  "heat setpoint"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "DeviceStatusIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "location",
+              "type": "AMAZON.Room",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Intent-DeviceStatusIntent.IntentSlot-location"
+              }
+            },
+            {
+              "name": "sensor",
+              "type": "LIST_OF_SENSORS",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Intent-DeviceStatusIntent.IntentSlot-sensor"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Intent-DeviceStatusIntent.IntentSlot-location",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Which room?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-DeviceStatusIntent.IntentSlot-sensor",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Which sensor?"
+          }
+        ]
+      }
+    ]
+  }
+}
+  
